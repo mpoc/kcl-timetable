@@ -154,9 +154,11 @@ for key in sorted(dates.keys(), reverse=True):  # Top to bottom flag
         event.add('location', row['locAdd1'])
         cal.add_component(event)
 
-desktop = os.path.expanduser("~/Desktop")
-timestamp = (datetime.now().strftime("%b%Y-%H_%M_%S")).lower()
-calendar_path = "" + desktop + "/course_schedule_" + timestamp + ".ics"
+# desktop = os.path.expanduser("~/Desktop")
+path = os.getcwd()
+# timestamp = (datetime.now().strftime("%b%Y-%H_%M_%S")).lower()
+# calendar_path = "" + desktop + "/course_schedule_" + timestamp + ".ics"
+calendar_path = "" + path + "/course_schedule.ics"
 
 f = open(calendar_path, 'wb')
 f.write(cal.to_ical())
@@ -164,8 +166,8 @@ f.close()
 
 print("Exported to " + calendar_path)
 
-print("Opening in calendar...")
-os.system('open ' + calendar_path)
+# print("Opening in calendar...")
+# os.system('open ' + calendar_path)
 print("Done! Goodbye :)")
 
 sys.exit
